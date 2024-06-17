@@ -1,0 +1,18 @@
+{
+    "web": {
+      "client_id": "159347455432-l7vgnnnu6m9l2vgo2a0lh6u4kd75cll8.apps.googleusercontent.com",
+      "project_id": "crested-sunup-414500",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_secret": "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",
+      "redirect_uris": [
+        "https://localhost:5000/oauth2callback",
+        "https://your-production-domain.com/oauth2callback"
+      ],
+      "javascript_origins": [
+        "http://localhost:8080",
+        "https://your-production-domain.com"
+      ]
+    }
+  }

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit New Word</title>
+    <style>
+        /* Reset default styles */
+        body {
+            font-family: Arial, sans-serif; /* Set font family */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #f4f4f4; /* Set background color */
+        }
+    
+        /* Container styles */
+        .container {
+            max-width: 600px; /* Set maximum width */
+            margin: 20px auto; /* Center container horizontally with 20px margin on top and bottom */
+            padding: 20px; /* Add padding */
+            background-color: #fff; /* Set background color */
+            border-radius: 5px; /* Add border radius */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        }
+    
+        /* Heading styles */
+        h1 {
+            text-align: center; /* Center align text */
+            color: #333; /* Set text color */
+        }
+    
+        /* Form styles */
+        form {
+            margin-top: 20px; /* Add margin on top */
+        }
+    
+        /* Label styles */
+        label {
+            display: block; /* Make labels block elements */
+            margin-bottom: 5px; /* Add margin below labels */
+            font-weight: bold; /* Make labels bold */
+        }
+    
+        /* Input and textarea styles */
+        input[type="text"],
+        textarea {
+            width: 100%; /* Set width to 100% */
+            padding: 10px; /* Add padding */
+            margin-bottom: 10px; /* Add margin below inputs */
+            border: 1px solid #ccc; /* Set border */
+            border-radius: 5px; /* Add border radius */
+        }
+    
+        /* Button styles */
+        button[type="submit"] {
+            background-color: #007bff; /* Set background color */
+            color: #fff; /* Set text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Add padding */
+            cursor: pointer; /* Set cursor to pointer */
+            border-radius: 5px; /* Add border radius */
+        }
+    
+        /* Button hover styles */
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+
+        /* Message styles */
+        #message {
+            margin-top: 20px; /* Add margin on top */
+            padding: 10px; /* Add padding */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        /* Additional button styles */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for the form -->
+    <div class="container">
+        <!-- Heading for the form -->
+        <h1>Submit a New Word</h1>
+        
+        <!-- Form for submitting a new word -->
+        <form id="wordForm" action="{{ url_for('submit_word') }}" method="POST" onsubmit="return validateForm()">
+            <!-- Input field for the word name -->
+            <label for="wordName">Word Name:</label>
+            <input type="text" id="wordName" name="wordName" required><br>
+            
+            <!-- Textarea for word definitions -->
+            <label for="definitions">Definitions:</label>
+            <textarea id="definitions" name="definitions" rows="4" required></textarea><br>
+            
+            <!-- Input field for word pronunciations -->
+            <label for="pronunciations">Pronunciations:</label>
+            <input type="text" id="pronunciations" name="pronunciations" required><br>
+            
+            <!-- Input field for synonyms -->
+            <label for="synonyms">Synonyms:</label>
+            <input type="text" id="synonyms" name="synonyms"><br>
+            
+            <!-- Input field for antonyms -->
+            <label for="antonyms">Antonyms:</label>
+            <input type="text" id="antonyms" name="antonyms"><br>
+            
+            <!-- Submit button for the form -->
+            <button type="submit">Validate This Word as a New Word</button>
+        </form>
+        
+        <!-- Return to Home button -->
+        <a href="{{ url_for('home') }}" class="btn">Return to Home</a>
+    </div>
+    
+
+<script>
+    $(document).ready(function() {
+        $('#wordForm').submit(function(event) {
+            event.preventDefault(); // Prevent default form submission
+            var formData = $(this).serialize(); // Serialize form data
+            $.ajax({
+                type: 'POST',
+                url: '/submit_word',
+                data: formData,
+                success: function(response) {
+                    // Display the response message on success
+                    $('#message').text(response.message);
+                },
+                error: function(xhr, status, error) {
+                    // Display error message on failure
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

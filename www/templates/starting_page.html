@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting Page</title>
+    <!-- CSS styles for styling the page -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Set font family */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #f4f4f4; /* Set background color */
+        }
+        .container {
+            position: absolute; /* Position the container absolutely */
+            top: 50%; /* Position the container vertically at 50% from the top */
+            left: 50%; /* Position the container horizontally at 50% from the left */
+            transform: translate(-50%, -50%); /* Center the container using transform */
+            text-align: center; /* Center-align the content inside the container */
+        }
+        h1 {
+            color: #333; /* Set text color */
+            margin-bottom: 30px; /* Add bottom margin */
+        }
+        button#loginBtn {
+            padding: 15px 30px; /* Add padding */
+            font-size: 18px; /* Set font size */
+            background-color: #007bff; /* Set background color */
+            color: #fff; /* Set text color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Add border radius */
+            cursor: pointer; /* Set cursor to pointer */
+        }
+        button#loginBtn:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for the content -->
+    <div class="container">
+        <!-- Heading -->
+        <h1>Welcome to Invent-A-Word!</h1>
+        <!-- Login button -->
+        <button id="loginBtn">Login</button>
+    </div>
+
+    <!-- JavaScript for adding interactivity -->
+    <script>
+        // Add event listener to the login button
+        document.getElementById("loginBtn").addEventListener("click", function() {
+            redirectToLogin(); // Call the redirectToLogin function when the button is clicked
+        });
+
+        // Function to redirect to the login page
+        function redirectToLogin() {
+            // Redirect to login page
+            window.location.href = "/login";
+        }
+    </script>
+</body>
+</html>

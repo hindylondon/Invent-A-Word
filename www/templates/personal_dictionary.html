@@ -1,0 +1,197 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dictionary</title>
+    <style>
+        /* Reset default styles */
+        body {
+            font-family: Arial, sans-serif; /* Set font family */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #f4f4f4; /* Set background color */
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 600px; /* Set maximum width */
+            margin: 20px auto; /* Center container horizontally with 20px margin on top and bottom */
+            padding: 20px; /* Add padding */
+            background-color: #fff; /* Set background color */
+            border-radius: 5px; /* Add border radius */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        }
+
+        /* Heading styles */
+        h1 {
+            text-align: center; /* Center align text */
+            color: #333; /* Set text color */
+        }
+
+        /* Message styles */
+        .message {
+            text-align: center; /* Center align text */
+            color: #888; /* Set text color */
+            margin-top: 20px; /* Add margin on top */
+        }
+
+        /* Word list styles */
+        ul {
+            list-style-type: none; /* Remove default list style */
+            padding: 0; /* Remove default padding */
+        }
+
+        /* Individual word item styles */
+        li {
+            margin-bottom: 10px; /* Add margin below each item */
+            padding: 10px; /* Add padding */
+            background-color: #f9f9f9; /* Set background color */
+            border-radius: 5px; /* Add border radius */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        }
+    </style>
+</head>
+<body>
+    <h1>Personal Dictionary</h1>
+    <div>
+        {% if words %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Word Name</th>
+                        <th>Definitions</th>
+                        <th>Pronunciations</th>
+                        <th>Synonyms</th>
+                        <th>Antonyms</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for word in words %}
+                        <tr>
+                            <td>{{ word.word_name }}</td>
+                            <td>{{ word.definitions }}</td>
+                            <td>{{ word.pronunciations }}</td>
+                            <td>{{ word.synonyms }}</td>
+                            <td>{{ word.antonyms }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </div>-->
+    <!-- Add your "Return to Home" button here -->
+   <!--  <a href="{{ url_for('home') }}" class="btn">Return to Home</a>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dictionary</title>
+    <style>
+        /* Reset default styles */
+        body {
+            font-family: Arial, sans-serif; /* Set font family */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #f4f4f4; /* Set background color */
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 800px; /* Set maximum width */
+            margin: 20px auto; /* Center container horizontally with 20px margin on top and bottom */
+            padding: 20px; /* Add padding */
+            background-color: #fff; /* Set background color */
+            border-radius: 5px; /* Add border radius */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        }
+
+        /* Heading styles */
+        h1 {
+            text-align: center; /* Center align text */
+            color: #333; /* Set text color */
+        }
+
+        /* Message styles */
+        .message {
+            text-align: center; /* Center align text */
+            color: #888; /* Set text color */
+            margin-top: 20px; /* Add margin on top */
+        }
+
+        /* Table styles */
+        table {
+            width: 100%; /* Set table width to fill container */
+            border-collapse: collapse; /* Collapse table borders */
+            margin-top: 20px; /* Add margin on top */
+        }
+
+        th, td {
+            padding: 10px; /* Add padding */
+            text-align: left; /* Left align text */
+            border-bottom: 1px solid #ddd; /* Add bottom border */
+        }
+
+        th {
+            background-color: #f2f2f2; /* Set header background color */
+        }
+
+        /* Button styles */
+        .btn {
+            display: block; /* Make the button a block element */
+            width: 120px; /* Set button width */
+            margin: 20px auto; /* Center button horizontally with margin */
+            padding: 10px 20px; /* Add padding */
+            background-color: #007bff; /* Set background color */
+            color: #fff; /* Set text color */
+            text-align: center; /* Center align text */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Add border radius */
+            transition: background-color 0.3s; /* Add transition effect */
+        }
+
+        .btn:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Dictionary</h1>
+        {% if words %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Word Name</th>
+                        <th>Definitions</th>
+                        <th>Pronunciations</th>
+                        <th>Synonyms</th>
+                        <th>Antonyms</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for word in words %}
+                        <tr>
+                            <td>{{ word.word_name }}</td>
+                            <td>{{ word.definitions }}</td>
+                            <td>{{ word.pronunciations }}</td>
+                            <td>{{ word.synonyms }}</td>
+                            <td>{{ word.antonyms }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+        <!-- Add your "Return to Home" button here -->
+        <a href="{{ url_for('home') }}" class="btn">Return to Home</a>
+    </div>
+</body>
+</html>

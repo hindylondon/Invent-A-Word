@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- CSS styles for styling the page -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Set font family */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #f4f4f4; /* Set background color */
+            text-align: center; /* Center-align text */
+        }
+
+        h1 {
+            color: #333; /* Set text color */
+            margin-top: 50px; /* Add top margin */
+        }
+
+        p {
+            color: #777; /* Set text color */
+        }
+
+        a {
+            display: inline-block; /* Make the link a block element */
+            margin-top: 20px; /* Add top margin */
+            padding: 10px 20px; /* Add padding */
+            background-color: #007bff; /* Set background color */
+            color: #fff; /* Set text color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        a:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+
+        .sign-out-btn {
+            display: inline-block; /* Make the button a block element */
+            margin-top: 20px; /* Add top margin */
+            padding: 10px 20px; /* Add padding */
+            background-color: #dc3545; /* Set background color */
+            color: #fff; /* Set text color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        .sign-out-btn:hover {
+            background-color: #c82333; /* Change background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for the content -->
+    <div class="container">
+         <!-- Heading -->
+        <h1>Welcome to Invent-A-Word!</h1>
+        <!-- Display user's email -->
+        <p>User: {{ name }}</p>
+        <!-- Link to submit a new word -->
+        <a href="{{ url_for('new_word') }}">Submit a New Word</a>
+        
+        <!-- Button to view personal dictionary -->
+        <a href="{{ url_for('view_dictionary') }}" class="btn">View Personal Dictionary</a>
+        
+        <!-- Sign out button -->
+        <form action="/sign_out" method="POST">
+            <button type="submit" class="sign-out-btn">Sign Out</button>
+        </form>
+    </div>
+</body>
+</html>

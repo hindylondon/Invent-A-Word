@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Word Result</title>
+    <style>
+        /* Reset default styles */
+        body {
+            font-family: Arial, sans-serif; /* Set font family */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #f4f4f4; /* Set background color */
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 600px; /* Set maximum width */
+            margin: 20px auto; /* Center container horizontally with 20px margin on top and bottom */
+            padding: 20px; /* Add padding */
+            background-color: #fff; /* Set background color */
+            border-radius: 5px; /* Add border radius */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        }
+
+        /* Heading styles */
+        h1 {
+            text-align: center; /* Center align text */
+            color: #333; /* Set text color */
+        }
+
+        /* Message styles */
+        .message {
+            margin-top: 20px; /* Add margin on top */
+            padding: 10px; /* Add padding */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        /* Success message styles */
+        .success {
+            background-color: #d4edda; /* Set background color for success message */
+            color: #155724; /* Set text color for success message */
+            border: 1px solid #c3e6cb; /* Set border for success message */
+        }
+
+        /* Error message styles */
+        .error {
+            background-color: #f8d7da; /* Set background color for error message */
+            color: #721c24; /* Set text color for error message */
+            border: 1px solid #f5c6cb; /* Set border for error message */
+        }
+
+        /* Button styles */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        /* Button hover styles */
+        .btn:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for the result -->
+    <div class="container">
+        <!-- Heading for the result -->
+        <h1>Submission Result</h1>
+        
+        <!-- Display the message -->
+        <div class="message {{ 'success' if 'successfully' in message else 'error' }}">{{ message }}</div>
+
+        <!-- Button to submit another word -->
+        <a href="{{ url_for('new_word') }}" class="btn">Submit Another Word</a>
+
+        <!-- Button to return to home -->
+        <a href="{{ url_for('home') }}" class="btn">Return to Home</a>
+    </div>
+</body>
+</html>
